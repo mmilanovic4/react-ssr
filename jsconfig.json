@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"Client/*": ["src/client/*"],
+			"Server/*": ["src/server/*"],
+			"Shared/*": ["src/shared/*"]
+		}
+	},
+	"exclude": ["node_modules", "dist"]
+}
