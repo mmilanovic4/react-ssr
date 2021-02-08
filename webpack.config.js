@@ -31,12 +31,11 @@ const client = {
 
 module.exports = (env) => {
 	const isDev = env?.dev === true;
-	const config = env?.server === true ? server : client;
 
 	return {
 		mode: isDev ? 'development' : 'production',
 		watch: isDev,
-		...config,
+		...(env?.server === true ? server : client),
 		resolve: {
 			extensions: ['.js', '.jsx'],
 			alias: {
@@ -82,10 +81,6 @@ module.exports = (env) => {
 					{
 						from: path.resolve(__dirname, 'views'),
 						to: path.resolve(__dirname, 'dist', 'views')
-					},
-					{
-						from: path.resolve(__dirname, 'config'),
-						to: path.resolve(__dirname, 'dist', 'config')
 					}
 				]
 			})

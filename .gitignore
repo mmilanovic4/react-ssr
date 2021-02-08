@@ -6,4 +6,3 @@ package-lock.json
 dist
 stats.json
 stats-*.json
-ssl/*[.crt, .key]
