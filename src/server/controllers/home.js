@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/*', async (req, res) => {
 	const el = React.createElement(
-		withRouter(App, Router, { location: req?.baseUrl, context: {} })
+		withRouter(App, Router, { location: req?.path, context: {} })
 	);
 	const dom = ReactDOMServer.renderToString(el);
 

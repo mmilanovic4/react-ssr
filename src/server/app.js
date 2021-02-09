@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 
 import { config } from 'Server/config';
+import apiController from 'Server/controllers/api';
 import homeController from 'Server/controllers/home';
 
 const app = express();
@@ -21,6 +22,7 @@ app.use('/assets', express.static('assets'));
 app.use('/static', express.static('static'));
 
 // Controllers
+app.use('/api/', apiController);
 app.use('/', homeController);
 
 // Start the server
