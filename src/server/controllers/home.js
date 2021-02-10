@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
 
-import { App } from 'Shared/components/App';
+import { App } from 'Shared/App';
 import { withRouter } from 'Shared/utils/withRouter';
 
 const router = express.Router();
