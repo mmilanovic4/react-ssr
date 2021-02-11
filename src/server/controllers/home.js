@@ -6,9 +6,9 @@ import { StaticRouter as Router } from 'react-router-dom';
 import { App } from 'Shared/App';
 import { withRouter } from 'Shared/utils/withRouter';
 
-const router = express.Router();
+const homeController = express.Router();
 
-router.get('/*', async (req, res) => {
+homeController.get('/*', async (req, res) => {
 	const el = React.createElement(
 		withRouter(App, Router, { location: req?.path, context: {} })
 	);
@@ -20,4 +20,4 @@ router.get('/*', async (req, res) => {
 	});
 });
 
-export default router;
+export { homeController };

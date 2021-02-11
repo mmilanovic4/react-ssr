@@ -3,8 +3,8 @@ import express from 'express';
 import path from 'path';
 
 import { config } from 'Server/config';
-import apiController from 'Server/controllers/api';
-import homeController from 'Server/controllers/home';
+import { apiController } from 'Server/controllers/api';
+import { homeController } from 'Server/controllers/home';
 
 const app = express();
 const port = config?.port || 5555;
@@ -26,4 +26,7 @@ app.use('/api/', apiController);
 app.use('/', homeController);
 
 // Start the server
-app.listen(port, () => console.log(`App listening on port ${port}...`));
+app.listen(port, () => {
+	console.debug(`App listening on port ${port}...`);
+	console.debug(JSON.stringify(config, null, 2));
+});
