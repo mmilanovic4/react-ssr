@@ -1,5 +1,3 @@
-<h1 style="color: #ff7f00">Work in progress</h1>
-
 # Overview
 
 A simple boilerplate for creating full stack web applications.
@@ -45,3 +43,17 @@ npm run build:server:stats
 ```
 
 Now `stats.json` file is generated in your project's root directory and you can open it with [webpack analyse](https://github.com/webpack/analyse) or some [other build analysis tool](https://survivejs.com/webpack/optimizing/build-analysis/).
+
+## To-do
+
+- Find an elegant way to implement SSR for `meta` tags
+  - Remove `data-react-helmet` attributes
+  - Move data loading for dynamic pages (e.g. blog posts in this app) to back-end
+  - Optimize data refetching on front (do not load data initially if it's already done on the server side)
+- Create wrapper for HTTP requests
+  - Use same API on front and back (`superagent`, `axios`, or try to combine browser `fetch` and `node-fetch`)
+- Add database (probably SQLite just as an example) and wrapper for database functions
+- Implement caching for server side rendering component
+- Less important stuff for now, but planned for future:
+  - Implement authentication and rate limiter on API routes
+  - ...

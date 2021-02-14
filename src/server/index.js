@@ -3,8 +3,8 @@ import express from 'express';
 import path from 'path';
 
 import { config } from 'Server/config';
-import { apiController } from 'Server/controllers/api';
-import { homeController } from 'Server/controllers/home';
+import { apiRouter } from 'Server/routes/api';
+import { homeRouter } from 'Server/routes/home';
 
 const app = express();
 const port = config?.port || 5555;
@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/assets', express.static('assets'));
 app.use('/static', express.static('static'));
 
-// Controllers
-app.use('/api/', apiController);
-app.use('/', homeController);
+// Routers
+app.use('/api/', apiRouter);
+app.use('/', homeRouter);
 
 // Start the server
 app.listen(port, () => {

@@ -1,6 +1,6 @@
 import express from 'express';
 
-const apiController = express.Router();
+const apiRouter = express.Router();
 
 const posts = [
 	{ id: '001', title: 'First post', slug: 'first-post' },
@@ -8,10 +8,10 @@ const posts = [
 	{ id: '003', title: 'Third post', slug: 'third-post' }
 ];
 
-apiController.get('/posts', async (_, res) => {
+apiRouter.get('/posts', async (_, res) => {
 	res.json({
 		posts
 	});
 });
 
-export { apiController };
+export { apiRouter };

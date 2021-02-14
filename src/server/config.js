@@ -1,5 +1,7 @@
+const isDev = process?.env?.NODE_ENV !== 'production';
+
 const config = {
-	isDev: process?.env?.NODE_ENV !== 'production',
+	isDev,
 	port: 1234
 };
 

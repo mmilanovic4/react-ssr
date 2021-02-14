@@ -12,7 +12,7 @@ const server = {
 		server: [
 			'core-js/stable',
 			'regenerator-runtime/runtime',
-			'./src/server/app.js'
+			'./src/server/index.js'
 		]
 	}
 };

@@ -1,5 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
-const About = () => <p>About</p>;
+import { parseTitle } from 'Shared/utils/misc';
+
+const About = () => {
+	return (
+		<>
+			<Helmet>
+				<title>{parseTitle('About')}</title>
+			</Helmet>
+			<p>About</p>
+		</>
+	);
+};
 
 export { About };

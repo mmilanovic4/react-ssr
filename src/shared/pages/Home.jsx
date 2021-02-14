@@ -1,11 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import { Loader } from 'Shared/components/Loader';
+import { parseTitle } from 'Shared/utils/misc';
 
 const Home = ({ posts }) => {
 	return (
 		<>
+			<Helmet>
+				<title>{parseTitle('Home')}</title>
+			</Helmet>
 			<p>Home</p>
 			{posts === false && <Loader />}
 			{posts !== false && (
