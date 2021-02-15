@@ -1,12 +1,8 @@
 import express from 'express';
 
-const apiRouter = express.Router();
+import posts from 'Server/data/mock.json';
 
-const posts = [
-	{ id: '001', title: 'First post', slug: 'first-post' },
-	{ id: '002', title: 'Second post', slug: 'second-post' },
-	{ id: '003', title: 'Third post', slug: 'third-post' }
-];
+const apiRouter = express.Router();
 
 apiRouter.get('/posts', async (_, res) => {
 	res.json({

@@ -6,21 +6,7 @@ import { BlogPost } from './pages/BlogPost';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 
-const App = () => {
-	const [posts, setPosts] = React.useState(false);
-
-	React.useEffect(() => {
-		fetch('/api/posts')
-			.then((res) => res.json())
-			.then((data) => {
-				setPosts(data?.posts || []);
-			})
-			.catch((err) => {
-				console.log(err);
-				setPosts([]);
-			});
-	}, []);
-
+const App = ({ posts }) => {
 	return (
 		<>
 			<h1>React SSR</h1>
