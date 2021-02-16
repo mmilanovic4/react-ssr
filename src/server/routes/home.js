@@ -20,7 +20,12 @@ homeRouter.get('/*', async (req, res) => {
 
 	res.render('index', {
 		title: stripHtmlTags(helmet?.title?.toString()),
-		dom
+		dom,
+		window: {
+			DATA: JSON.stringify({
+				posts
+			})
+		}
 	});
 });
 

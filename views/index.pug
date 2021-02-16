@@ -3,6 +3,10 @@ extends includes/layout.pug
 block head
 	link(rel="stylesheet", href="/assets/style.css")
 	script(src="/assets/client.js", defer)
+	if window
+		each value, key in window
+			script.
+				window.__!{key}__ = !{value};
 
 block content
 	div(id="root") !{dom}
