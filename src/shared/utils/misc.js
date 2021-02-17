@@ -11,3 +11,17 @@ export const parseTitle = (title) => {
 	if (!seo?.title) return title;
 	return `${seo?.title} | ${title}`;
 };
+
+export const getInitialData = (props) => {
+	if (props?.staticContext) {
+		return { ...props?.staticContext };
+	}
+
+	if (window?.__DATA__) {
+		const data = window?.__DATA__;
+		delete window.__DATA__;
+		return { ...data };
+	}
+
+	return {};
+};

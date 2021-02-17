@@ -1,14 +1,9 @@
 import React from 'react';
 
-const withRouter = (
-	Router,
-	Comp,
-	propsForRouter = {},
-	propsForComp = {}
-) => () => {
+const withRouter = (Router, Comp, props = {}) => () => {
 	return (
-		<Router {...propsForRouter}>
-			<Comp {...propsForComp} />
+		<Router {...props}>
+			<Comp />
 		</Router>
 	);
 };
