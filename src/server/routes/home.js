@@ -16,7 +16,7 @@ homeRouter.get('/*', async (req, res) => {
 	const currentRoute = routes?.find((route) => matchPath(path, route));
 	const initialData =
 		typeof currentRoute?.requestInitialData === 'function'
-			? currentRoute?.requestInitialData(path)
+			? await currentRoute?.requestInitialData(path)
 			: {};
 
 	const el = React.createElement(

@@ -3,6 +3,7 @@ import { Home } from 'Shared/pages/Home';
 import { BlogPost } from 'Shared/pages/BlogPost';
 import { About } from 'Shared/pages/About';
 import { Contact } from 'Shared/pages/Contact';
+import { withInitialData } from 'Shared/utils/withInitialData';
 
 const routes = [
 	{
@@ -18,9 +19,9 @@ const routes = [
 	{
 		path: '/blog/:slug',
 		exact: true,
-		component: BlogPost,
-		requestInitialData(path) {
-			const post = fetchPostBySlug(path?.replace(/^\/blog\//, ''));
+		component: withInitialData(BlogPost),
+		async requestInitialData(path) {
+			const post = await fetchPostBySlug(path?.replace(/^\/blog\//, ''));
 			return {
 				post
 			};
@@ -28,9 +29,9 @@ const routes = [
 	},
 	{
 		path: '/',
-		component: Home,
-		requestInitialData: () => {
-			const posts = fetchPosts();
+		component: withInitialData(Home),
+		async requestInitialData() {
+			const posts = await fetchPosts();
 			return {
 				posts
 			};

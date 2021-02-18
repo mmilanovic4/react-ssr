@@ -1,49 +1,33 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Loader } from 'Shared/components/Loader';
-import { getInitialData, parseTitle } from 'Shared/utils/misc';
+import { parseTitle } from 'Shared/utils/misc';
 
-class BlogPost extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			...getInitialData(props)
-		};
-	}
+const BlogPost = ({ post: initialPost }) => {
+	const { slug } = useParams();
+	const [post, setPost] = React.useState(initialPost);
 
-	componentDidMount() {
-		console.log();
-		if (!this?.state?.post) {
-			fetch(`/api/post/${this?.props?.match?.params?.slug}`)
-				.then((res) => res?.json())
-				.then((data) => {
-					this.setState({
-						post: data?.post || {}
-					});
-				})
-				.catch(() => {
-					this.setState({
-						post: {}
-					});
-				});
+	React.useEffect(async () => {
+		if (!post) {
+			const response = await fetch(`/api/post/${slug}`);
+			const data = await response?.json();
+			setPost(data?.post || {});
 		}
-	}
+	}, []);
 
-	render() {
-		const { post } = this.state;
-		return (
-			<>
-				<Helmet>
-					<title>{parseTitle(post?.title)}</title>
-				</Helmet>
-				{!post && <Loader />}
-				{post && <p>{post?.title}</p>}
-				<Link to="/">Back to home</Link>
-			</>
-		);
-	}
-}
+	return (
+		<>
+			<Helmet>
+				<title>{parseTitle(post?.title)}</title>
+			</Helmet>
+			{!post && <Loader />}
+			{post && <p>{post?.title}</p>}
+			{post?.notFound && <p>The requested post does not exists.</p>}
+			<Link to="/">Back to home</Link>
+		</>
+	);
+};
 
 export { BlogPost };

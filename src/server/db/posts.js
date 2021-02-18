@@ -1,9 +1,18 @@
+import { async } from 'regenerator-runtime';
 import posts from 'Server/db/posts.json';
 
-const fetchPosts = () => posts;
+const timeout = async (data) => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(data);
+		}, 250);
+	});
+};
 
-const fetchPostBySlug = (slug) => {
-	return (
+const fetchPosts = async () => timeout(posts);
+
+const fetchPostBySlug = async (slug) => {
+	return timeout(
 		posts?.find((post) => post?.slug === slug) || {
 			title: 'Post not found',
 			notFound: true
