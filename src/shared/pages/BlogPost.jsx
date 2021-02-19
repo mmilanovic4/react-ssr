@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 
 import { Loader } from 'Shared/components/Loader';
-import { parseTitle } from 'Shared/utils/misc';
+import { parseTitle } from 'Shared/lib/misc';
 
 const BlogPost = ({ post: initialPost }) => {
 	const { slug } = useParams();

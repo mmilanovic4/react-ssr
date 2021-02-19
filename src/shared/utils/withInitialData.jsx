@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getInitialData } from 'Shared/utils/misc';
+import { getInitialData } from 'Shared/lib/misc';
 
 const withInitialData = (Comp) => {
 	return class extends React.Component {

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import { Loader } from 'Shared/components/Loader';
-import { parseTitle } from 'Shared/utils/misc';
+import { parseTitle } from 'Shared/lib/misc';
 
 const Home = ({ posts: initialPosts }) => {
 	const [posts, setPosts] = React.useState(initialPosts || false);
