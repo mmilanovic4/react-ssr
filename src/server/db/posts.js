@@ -1,11 +1,10 @@
-import { async } from 'regenerator-runtime';
 import posts from 'Server/db/posts.json';
 
 const timeout = async (data) => {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(data);
-		}, 250);
+		}, 500);
 	});
 };
 

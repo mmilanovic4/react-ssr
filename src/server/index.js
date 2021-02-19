@@ -1,6 +1,5 @@
 import compression from 'compression';
 import express from 'express';
-import path from 'path';
 
 import { config } from 'Server/config';
 import { apiRouter } from 'Server/routes/api';
@@ -11,8 +10,6 @@ const port = config?.port || 5555;
 
 // App settings
 app.disable('x-powered-by');
-app.set('view engine', 'pug');
-app.set('views', path.resolve('views'));
 
 // Middleware
 app.use(compression());

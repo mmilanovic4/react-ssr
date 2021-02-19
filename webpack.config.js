@@ -77,10 +77,6 @@ module.exports = (env) => {
 					{
 						from: path.resolve(__dirname, 'static'),
 						to: path.resolve(__dirname, 'dist', 'static')
-					},
-					{
-						from: path.resolve(__dirname, 'views'),
-						to: path.resolve(__dirname, 'dist', 'views')
 					}
 				]
 			})
