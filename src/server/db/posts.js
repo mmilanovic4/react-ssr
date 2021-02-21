@@ -4,7 +4,7 @@ const timeout = async (data) => {
 	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(data);
-		}, 500);
+		}, 1000);
 	});
 };
 

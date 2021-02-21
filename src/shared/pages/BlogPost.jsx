@@ -4,16 +4,18 @@ import { Link, useParams } from 'react-router-dom';
 
 import { Loader } from 'Shared/components/Loader';
 import { parseTitle } from 'Shared/lib/misc';
+import { useIsMounted } from 'Shared/utils/useIsMounted';
 
 const BlogPost = ({ post: initialPost }) => {
 	const { slug } = useParams();
+	const isMounted = useIsMounted();
 	const [post, setPost] = React.useState(initialPost);
 
 	React.useEffect(async () => {
 		if (!post) {
 			const response = await fetch(`/api/post/${slug}`);
 			const data = await response?.json();
-			setPost(data?.post || {});
+			if (isMounted?.current) setPost(data?.post || {});
 		}
 	}, []);
 

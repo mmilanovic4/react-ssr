@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom';
 
 import { Loader } from 'Shared/components/Loader';
 import { parseTitle } from 'Shared/lib/misc';
+import { useIsMounted } from 'Shared/utils/useIsMounted';
 
 const Home = ({ posts: initialPosts }) => {
+	const isMounted = useIsMounted();
 	const [posts, setPosts] = React.useState(initialPosts || false);
 
 	React.useEffect(async () => {
 		if (!posts) {
 			const response = await fetch('/api/posts');
 			const data = await response?.json();
-			setPosts(data?.posts || []);
+			if (isMounted?.current) setPosts(data?.posts || []);
 		}
 	}, []);
 
