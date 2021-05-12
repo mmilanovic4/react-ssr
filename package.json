@@ -24,9 +24,9 @@
 		"url": "https://github.com/mmilanovic4/react-ssr.git"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.14.0",
+		"@babel/core": "^7.14.2",
 		"@babel/plugin-proposal-class-properties": "^7.13.0",
-		"@babel/preset-env": "^7.14.1",
+		"@babel/preset-env": "^7.14.2",
 		"@babel/preset-react": "^7.13.13",
 		"babel-loader": "^8.1.0",
 		"copy-webpack-plugin": "^8.1.1",
@@ -35,7 +35,7 @@
 		"mini-css-extract-plugin": "^1.6.0",
 		"nodemon": "^2.0.4",
 		"prettier": "^2.3.0",
-		"sass": "^1.32.12",
+		"sass": "^1.32.13",
 		"sass-loader": "^11.1.0",
 		"style-loader": "^2.0.0",
 		"terser-webpack-plugin": "^5.1.2",
